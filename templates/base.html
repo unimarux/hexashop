@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% include 'components/__meta__.html' %}
+      <title>Hexashop</title>
+    <!-- Additional CSS Files -->
+      {% include 'components/__style__.html'  %}
+  </head>
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+{% include 'components/__preloader__.html' %}
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+{% include 'components/__header__.html' %}
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+{% include 'components/__banner__.html' %}
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- *****  Sections Start ***** -->
+{% block content %}
+{% include 'components/__sections__.html' %}
+{% endblock content %}
+    <!-- ***** Sections End *****  -->
+    <!-- ***** Footer Start ***** -->
+
+{% include 'components/__footer__.html' %}
+
+    <!-- jQuery -->
+{% include 'components/__script__.html' %}
+
+  </body>
+</html>

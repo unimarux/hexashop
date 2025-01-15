@@ -6,6 +6,7 @@ from hexashop_app.models import Category, Product, ProductImage , Type
 
 # Register your models here.
 
+admin.site.site_header = 'Hexashop Admin Panel'
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 0
@@ -20,7 +21,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['discount' , 'price' , 'category' , 'color' ,
                          'brand' , 'description' , 'name']
     inlines = [ProductImageInline]
-
+    prepopulated_fields = {'slug': ('name' , )}
     def image(self , product):
          images = product.productimage_set.all()
          if images:

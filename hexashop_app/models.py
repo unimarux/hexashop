@@ -39,6 +39,7 @@ class Type(models.Model):
         return self.name
 
 class Product(models.Model):
+    slug = models.SlugField(max_length=100 , unique=True , verbose_name="Slug")
     name = models.CharField(max_length=100 , verbose_name="Product Name")
     description = models.CharField(max_length=1000 , verbose_name="Description")
     category = models.ForeignKey(Category , on_delete=models.SET_NULL , null=True , verbose_name="Category")
@@ -52,7 +53,7 @@ class Product(models.Model):
         return self.name
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product , on_delete=models.CASCADE , verbose_name="Product")
+    product = models.ForeignKey(Product , on_delete=models.CASCADE , verbose_name="Product",related_name="images")
     image = models.ImageField(upload_to='product/image/' , verbose_name="Product Image")
 
     def __str__(self):
