@@ -23,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
     prepopulated_fields = {'slug': ('name' , )}
     def image(self , product):
-         images = product.productimage_set.all()
+         images = product.images.all()
          if images:
              return mark_safe(f'<img src="{images[0].image.url}" width="50" height="50" />')
          return '-'

@@ -25,6 +25,7 @@ class MyUser(AbstractUser):
     )
 
 class Category(models.Model):
+    slug = models.SlugField(max_length=100 , verbose_name="Slug" , null=True , blank=True)
     name = models.CharField(max_length=100 , unique=True , verbose_name="Category Name")
 
     def __str__(self):
