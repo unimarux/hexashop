@@ -59,3 +59,20 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return str(self.product.pk)
+
+
+class Order(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(MyUser , on_delete=models.SET_NULL , null=True)
+    finished = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.created)
+
+
+class OrderProduct(models.Model):
+    order = models.ForeignKey(Order , on_delete=models.CASCADE)
+    product = models.ForeignKey(Product , on_delete=models.PROTECT)
+    quantity = models.IntegerField()
+    created = models.DateTimeField(auto_now_add=True)
+

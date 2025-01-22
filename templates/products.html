@@ -123,7 +123,7 @@
                         <div class="thumb">
                             <div class="hover-content">
                                 <ul>
-                                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="{%  url 'product' product.slug %}"><i class="fa fa-eye"></i></a></li>
                                     <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                     <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
@@ -133,7 +133,7 @@
                             {% endfor %}
                         </div>
                         <div class="down-content">
-                            <h4>{{ product.name  }}</h4>
+                            <h4>{{ product.name }}</h4>
                             <span>${{ product.price }}</span>
                             <ul class="stars">
                                 <li><i class="fa fa-star"></i></li>

@@ -28,7 +28,10 @@ class ProductAdmin(admin.ModelAdmin):
              return mark_safe(f'<img src="{images[0].image.url}" width="50" height="50" />')
          return '-'
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['name' , 'slug']
+    prepopulated_fields = {'slug': ('name' , )}
 
-admin.site.register(Category)
+admin.site.register(Category , CategoryAdmin)
 admin.site.register(Product  , ProductAdmin)
 admin.site.register(Type)
